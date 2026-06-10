@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, viewport-fit=cover">
   <meta name="description" content="FinFlow NBFC — Next-generation DSA & Partner Onboarding App with KYC verification for Non-Banking Financial Companies">
   <title>FinFlow NBFC — DSA & Partner Onboarding</title>
   <link rel="stylesheet" href="css/style.css">
@@ -1190,10 +1190,38 @@
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
       navigator.serviceWorker.register('/sw.js')
-        .then(reg => console.log('[FinFlow] SW registered:', reg.scope))
+        .then(reg => {
+          console.log('[FinFlow] SW registered:', reg.scope);
+        })
         .catch(err => console.log('[FinFlow] SW failed:', err));
     });
+
+    // Handle service worker updates: reload page when a new service worker takes over
+    let refreshing = false;
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+      if (!refreshing) {
+        refreshing = true;
+        window.location.reload();
+      }
+    });
   }
+
+  // Prevent pinch-to-zoom completely on mobile touch gestures
+  document.addEventListener('touchstart', (event) => {
+    if (event.touches.length > 1) {
+      event.preventDefault();
+    }
+  }, { passive: false });
+
+  // Prevent double-tap to zoom
+  let lastTouchEnd = 0;
+  document.addEventListener('touchend', (event) => {
+    const now = (new Date()).getTime();
+    if (now - lastTouchEnd <= 300) {
+      event.preventDefault();
+    }
+    lastTouchEnd = now;
+  }, { passive: false });
 </script>
 </body>
 </html>

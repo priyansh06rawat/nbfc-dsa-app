@@ -2,7 +2,7 @@
    FinFlow NBFC — Service Worker (PWA Offline Support)
    ============================================================ */
 
-const CACHE_NAME = 'finflow-nbfc-v1.0.0';
+const CACHE_NAME = 'finflow-nbfc-v1.0.1';
 const CACHE_URLS = [
   '/',
   '/index.html',
@@ -47,7 +47,7 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// ── Fetch: Cache-first for local, network-first for remote ─
+// ── Fetch: Network-first for local, network-first with cache fallback for remote ─
 self.addEventListener('fetch', (event) => {
   const { request } = event;
   const url = new URL(request.url);
@@ -55,18 +55,18 @@ self.addEventListener('fetch', (event) => {
   // Skip non-GET requests
   if (request.method !== 'GET') return;
 
-  // Local assets → cache-first strategy
+  // Local assets → network-first strategy
   if (url.origin === location.origin) {
     event.respondWith(
-      caches.match(request).then((cached) => {
-        if (cached) return cached;
-        return fetch(request).then((response) => {
-          if (response && response.status === 200) {
-            const clone = response.clone();
-            caches.open(CACHE_NAME).then(cache => cache.put(request, clone));
-          }
-          return response;
-        }).catch(() => {
+      fetch(request).then((response) => {
+        if (response && response.status === 200) {
+          const clone = response.clone();
+          caches.open(CACHE_NAME).then(cache => cache.put(request, clone));
+        }
+        return response;
+      }).catch(() => {
+        return caches.match(request).then((cached) => {
+          if (cached) return cached;
           // Fallback to index.html for navigation requests
           if (request.destination === 'document') {
             return caches.match('/index.html');
