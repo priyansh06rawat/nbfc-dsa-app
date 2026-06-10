@@ -1,0 +1,51 @@
+{
+  "name": "FinFlow NBFC",
+  "short_name": "FinFlow",
+  "description": "Next-generation DSA & Partner Onboarding App with KYC verification for FinFlow NBFC",
+  "start_url": "/index.html",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#070B18",
+  "theme_color": "#6C63FF",
+  "lang": "en-IN",
+  "categories": ["finance", "business"],
+  "icons": [
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "New Lead",
+      "short_name": "Lead",
+      "description": "Submit a new lead",
+      "url": "/index.html",
+      "icons": [{ "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" }]
+    },
+    {
+      "name": "Dashboard",
+      "short_name": "Dashboard",
+      "description": "Open admin dashboard",
+      "url": "/dashboard.html",
+      "icons": [{ "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" }]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
+}

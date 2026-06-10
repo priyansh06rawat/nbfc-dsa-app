@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="FinFlow NBFC — Next-generation DSA & Partner Onboarding App with KYC verification for Non-Banking Financial Companies">
+  <title>FinFlow NBFC — DSA & Partner Onboarding</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/mobile.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#6C63FF">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="FinFlow">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+</head>
+<body class="mobile-view">
+
+<!-- Background Orbs -->
+<div class="bg-orb bg-orb-1"></div>
+<div class="bg-orb bg-orb-2"></div>
+<div class="bg-orb bg-orb-3"></div>
+
+<!-- ═══════════════════════════════════════════════
+     SIDE PANEL (desktop only)
+     ═══════════════════════════════════════════════ -->
+<div class="side-panel">
+  <!-- Progress Steps Sidebar -->
+  <div class="steps-sidebar glass-card" style="border-radius:var(--radius-xl);padding:24px">
+    <div class="steps-sidebar-title">Onboarding Progress</div>
+    <div class="sidebar-step pending" id="ss-splash">
+      <div class="sidebar-step-num">✦</div>
+      <div class="sidebar-step-label">Welcome</div>
+    </div>
+    <div class="sidebar-step pending" id="ss-login">
+      <div class="sidebar-step-num">1</div>
+      <div class="sidebar-step-label">Login / OTP</div>
+    </div>
+    <div class="sidebar-step pending" id="ss-partner">
+      <div class="sidebar-step-num">2</div>
+      <div class="sidebar-step-label">Partner Type</div>
+    </div>
+    <div class="sidebar-step pending" id="ss-personal">
+      <div class="sidebar-step-num">3</div>
+      <div class="sidebar-step-label">Personal Details</div>
+    </div>
+    <div class="sidebar-step pending" id="ss-professional">
+      <div class="sidebar-step-num">4</div>
+      <div class="sidebar-step-label">Professional Info</div>
+    </div>
+    <div class="sidebar-step pending" id="ss-kyc-pan">
+      <div class="sidebar-step-num">5</div>
+      <div class="sidebar-step-label">PAN Verification</div>
+    </div>
+    <div class="sidebar-step pending" id="ss-kyc-aadhar">
+      <div class="sidebar-step-num">6</div>
+      <div class="sidebar-step-label">Aadhaar Upload</div>
+    </div>
+    <div class="sidebar-step pending" id="ss-kyc-selfie">
+      <div class="sidebar-step-num">7</div>
+      <div class="sidebar-step-label">Selfie + Face Match</div>
+    </div>
+    <div class="sidebar-step pending" id="ss-kyc-biz">
+      <div class="sidebar-step-num">8</div>
+      <div class="sidebar-step-label">Business Proof</div>
+    </div>
+    <div class="sidebar-step pending" id="ss-kyc-bank">
+      <div class="sidebar-step-num">9</div>
+      <div class="sidebar-step-label">Bank Verification</div>
+    </div>
+    <div class="sidebar-step pending" id="ss-kyc-agree">
+      <div class="sidebar-step-num">10</div>
+      <div class="sidebar-step-label">DSA Agreement</div>
+    </div>
+    <div class="sidebar-step pending" id="ss-review">
+      <div class="sidebar-step-num">11</div>
+      <div class="sidebar-step-label">Final Review</div>
+    </div>
+  </div>
+
+  <!-- Info Card -->
+  <div class="glass-card" style="padding:20px;border-radius:var(--radius-xl)">
+    <div style="font-size:12px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:14px">Need Help?</div>
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+      <span style="font-size:20px">📞</span>
+      <div>
+        <div style="font-size:13px;font-weight:700">1800-XXX-XXXX</div>
+        <div style="font-size:11px;color:var(--text-muted)">9AM – 7PM Mon–Sat</div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px">
+      <span style="font-size:20px">💬</span>
+      <div>
+        <div style="font-size:13px;font-weight:700">Live Chat Support</div>
+        <div style="font-size:11px;color:var(--text-muted)">Avg reply: 2 minutes</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dashboard Link -->
+  <a href="dashboard.html" class="btn-primary" style="width:100%;justify-content:center;text-decoration:none">
+    🖥️ Open Dashboard
+  </a>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     PHONE FRAME
+     ═══════════════════════════════════════════════ -->
+<div class="phone-frame">
+  <!-- Phone Chrome -->
+  <div class="phone-notch"></div>
+
+  <!-- Status Bar -->
+  <div class="status-bar">
+    <span class="status-bar-time">17:51</span>
+    <div class="status-bar-icons">
+      <svg width="16" height="11" viewBox="0 0 16 11" fill="none">
+        <rect x="0" y="4" width="3" height="7" rx="1" fill="rgba(255,255,255,0.6)"/>
+        <rect x="4.5" y="2.5" width="3" height="8.5" rx="1" fill="rgba(255,255,255,0.7)"/>
+        <rect x="9" y="1" width="3" height="10" rx="1" fill="rgba(255,255,255,0.85)"/>
+        <rect x="13.5" y="0" width="2.5" height="11" rx="1" fill="white"/>
+      </svg>
+      <svg width="14" height="10" viewBox="0 0 14 10" fill="none">
+        <path d="M7 2.5C8.8 2.5 10.4 3.2 11.6 4.4L13 3C11.4 1.5 9.3.6 7 .6S2.6 1.5 1 3l1.4 1.4C3.6 3.2 5.2 2.5 7 2.5z" fill="white" opacity=".5"/>
+        <path d="M7 5.5c.8 0 1.5.3 2 .8L10.4 5c-.9-1-2.1-1.6-3.4-1.6s-2.5.6-3.4 1.6L5 6.3c.5-.5 1.2-.8 2-.8z" fill="white" opacity=".75"/>
+        <circle cx="7" cy="9" r="1.5" fill="white"/>
+      </svg>
+      <svg width="25" height="12" viewBox="0 0 25 12" fill="none">
+        <rect x="0.5" y="0.5" width="21" height="11" rx="3.5" stroke="white" stroke-opacity="0.35"/>
+        <rect x="2" y="2" width="16" height="8" rx="2" fill="white"/>
+        <path d="M23 4v4a2 2 0 000-4z" fill="white" opacity="0.4"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Screen Container -->
+  <div class="screen-container">
+
+    <!-- ── SCREEN 1: SPLASH ─────────────────────── -->
+    <div id="screen-splash" class="screen active">
+      <div class="splash-inner" style="position:relative;width:100%;height:100%;background:linear-gradient(160deg,#0D1147 0%,#070B18 50%,#0A1428 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;padding:40px">
+        <!-- Grid lines -->
+        <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(108,99,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(108,99,255,0.04) 1px,transparent 1px);background-size:30px 30px;pointer-events:none"></div>
+
+        <div class="splash-logo">
+          <svg viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 23L23 8L38 23L23 38L8 23Z" fill="white" opacity="0.9"/>
+            <path d="M15 23L23 15L31 23L23 31L15 23Z" fill="rgba(0,212,255,0.9)"/>
+            <circle cx="23" cy="23" r="4" fill="white"/>
+          </svg>
+        </div>
+
+        <div class="splash-brand">
+          <h1><span class="text-gradient">FinFlow</span></h1>
+          <p>NBFC Partner Portal</p>
+        </div>
+
+        <div class="splash-tagline">
+          Empowering DSAs & Partners with seamless digital onboarding
+        </div>
+
+        <div class="splash-loader">
+          <div class="splash-loader-dot"></div>
+          <div class="splash-loader-dot"></div>
+          <div class="splash-loader-dot"></div>
+        </div>
+
+        <div style="position:absolute;bottom:40px;text-align:center;animation:fade-in 0.5s ease 2s both">
+          <div style="font-size:11px;color:var(--text-muted)">Regulated by RBI · ISO 27001 Certified</div>
+          <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-top:6px">
+            <span style="font-size:11px;color:var(--text-muted)">🔒 256-bit Encrypted</span>
+            <span style="font-size:11px;color:var(--text-muted)">·</span>
+            <span style="font-size:11px;color:var(--text-muted)">🛡️ DigiLocker Integrated</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SCREEN 2: LOGIN ──────────────────────── -->
+    <div id="screen-login" class="screen">
+      <div class="screen-content">
+        <div style="padding-top:56px;margin-bottom:32px">
+          <div style="width:48px;height:48px;background:var(--grad-primary);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;font-size:22px">🏦</div>
+          <h2 class="anim-fade-up" style="font-size:26px;font-weight:800;margin-bottom:6px">Welcome Back!</h2>
+          <p class="anim-fade-up delay-100" style="font-size:14px;color:var(--text-secondary)">Enter your registered mobile number to continue</p>
+        </div>
+
+        <div class="form-group anim-fade-up delay-200" style="margin-bottom:20px">
+          <label class="form-label">Mobile Number</label>
+          <div class="phone-input-wrapper">
+            <div class="phone-flag">🇮🇳 +91</div>
+            <input id="phone-input" type="tel" class="phone-flag-input" placeholder="98XXXXXXXX" maxlength="10" inputmode="numeric">
+          </div>
+        </div>
+
+        <button id="send-otp-btn" class="btn-primary" style="width:100%;margin-bottom:16px">
+          Get OTP →
+        </button>
+
+        <div style="text-align:center;margin-bottom:24px">
+          <span style="font-size:13px;color:var(--text-muted)">New partner? </span>
+          <span style="font-size:13px;color:var(--clr-primary-l);font-weight:600;cursor:pointer" data-next-screen="screen-partner-type">Register Here</span>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
+          <div style="flex:1;height:1px;background:rgba(255,255,255,0.08)"></div>
+          <span style="font-size:12px;color:var(--text-muted)">or sign in with</span>
+          <div style="flex:1;height:1px;background:rgba(255,255,255,0.08)"></div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+          <button class="btn-outline" style="width:100%;font-size:13px">🔑 Aadhaar OTP</button>
+          <button class="btn-outline" style="width:100%;font-size:13px">🏛️ DigiLocker</button>
+        </div>
+
+        <div style="margin-top:28px;padding:14px;background:rgba(0,229,160,0.06);border:1px solid rgba(0,229,160,0.15);border-radius:var(--radius-md)">
+          <div style="font-size:12px;color:var(--clr-emerald);font-weight:600;margin-bottom:4px">🔒 Secure & Compliant</div>
+          <div style="font-size:11px;color:var(--text-muted);line-height:1.5">Your data is protected under RBI guidelines and DPDP Act 2023. We never share your information without consent.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SCREEN 3: OTP VERIFICATION ──────────── -->
+    <div id="screen-otp" class="screen">
+      <div class="screen-content">
+        <div class="top-nav">
+          <button class="back-btn" data-action="back">←</button>
+          <span class="top-nav-title">OTP Verification</span>
+          <div style="width:36px"></div>
+        </div>
+
+        <div style="text-align:center;padding:30px 0 20px">
+          <div style="font-size:48px;margin-bottom:16px">📱</div>
+          <h2 style="font-size:22px;font-weight:800;margin-bottom:8px">Verify Your Number</h2>
+          <p style="font-size:13px;color:var(--text-secondary)">We've sent a 6-digit OTP to<br><strong style="color:var(--text-primary)">+91 98XXXXXXXX</strong></p>
+        </div>
+
+        <div class="otp-input-row">
+          <input class="otp-digit" type="tel" maxlength="1" inputmode="numeric">
+          <input class="otp-digit" type="tel" maxlength="1" inputmode="numeric">
+          <input class="otp-digit" type="tel" maxlength="1" inputmode="numeric">
+          <input class="otp-digit" type="tel" maxlength="1" inputmode="numeric">
+          <input class="otp-digit" type="tel" maxlength="1" inputmode="numeric">
+          <input class="otp-digit" type="tel" maxlength="1" inputmode="numeric">
+        </div>
+
+        <button class="btn-primary" style="width:100%;margin:8px 0 16px" data-next-screen="screen-partner-type">
+          Verify OTP ✓
+        </button>
+
+        <div class="resend-row">
+          <span style="font-size:13px;color:var(--text-muted)">Didn't receive? </span>
+          <button class="resend-btn" id="resend-btn">Resend OTP</button>
+          <span id="resend-timer" style="font-size:13px;color:var(--text-muted);display:none"> in 30s</span>
+        </div>
+
+        <div style="margin-top:24px;padding:14px;background:rgba(108,99,255,0.06);border:1px solid rgba(108,99,255,0.15);border-radius:var(--radius-md);font-size:12px;color:var(--text-muted)">
+          ⚡ Demo mode: OTP is pre-filled as <strong style="color:var(--clr-primary-l)">123456</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SCREEN 4: PARTNER TYPE ───────────────── -->
+    <div id="screen-partner-type" class="screen">
+      <div class="screen-content">
+        <div class="top-nav">
+          <button class="back-btn" data-action="back">←</button>
+          <span class="top-nav-title">Partner Type</span>
+          <div style="width:36px"></div>
+        </div>
+
+        <div style="padding:16px 0 8px">
+          <h2 style="font-size:22px;font-weight:800;margin-bottom:6px">Choose Your Role</h2>
+          <p style="font-size:13px;color:var(--text-secondary)">Select the type of partner you want to register as</p>
+        </div>
+
+        <div class="partner-grid">
+          <div class="partner-card" data-type="dsa">
+            <div class="partner-icon" style="background:rgba(108,99,255,0.15)">👔</div>
+            <div class="partner-card-label">DSA Partner</div>
+            <div class="partner-card-sub">Direct Selling Agent with full commission structure</div>
+          </div>
+          <div class="partner-card" data-type="connector">
+            <div class="partner-icon" style="background:rgba(0,212,255,0.12)">🔗</div>
+            <div class="partner-card-label">Connector</div>
+            <div class="partner-card-sub">Refer leads and earn flat referral fee</div>
+          </div>
+          <div class="partner-card" data-type="co-lender">
+            <div class="partner-icon" style="background:rgba(0,229,160,0.12)">🏛️</div>
+            <div class="partner-card-label">Co-Lending</div>
+            <div class="partner-card-sub">NBFC/Bank co-lending arrangement</div>
+          </div>
+          <div class="partner-card" data-type="builder">
+            <div class="partner-icon" style="background:rgba(255,184,48,0.12)">🏗️</div>
+            <div class="partner-card-label">Builder</div>
+            <div class="partner-card-sub">Real estate developer partnership</div>
+          </div>
+        </div>
+
+        <!-- Benefits -->
+        <div class="glass-card" style="padding:16px;margin:4px 0 16px">
+          <div style="font-size:12px;font-weight:700;color:var(--clr-cyan);margin-bottom:12px">✨ DSA Partner Benefits</div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text-secondary)">✅ Earn up to 1.5% commission</div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text-secondary)">✅ Real-time lead tracking dashboard</div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text-secondary)">✅ Dedicated Relationship Manager</div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text-secondary)">✅ Monthly payout on 15th</div>
+          </div>
+        </div>
+
+        <button class="btn-primary" style="width:100%" data-next-screen="screen-personal">
+          Continue →
+        </button>
+      </div>
+    </div>
+
+    <!-- ── SCREEN 5: PERSONAL DETAILS ──────────── -->
+    <div id="screen-personal" class="screen">
+      <div class="screen-content">
+        <div class="top-nav">
+          <button class="back-btn" data-action="back">←</button>
+          <span class="top-nav-title">Personal Details</span>
+          <span style="font-size:12px;color:var(--text-muted)">1/2</span>
+        </div>
+
+        <div style="padding:12px 0 4px">
+          <div style="display:flex;gap:4px;margin-bottom:16px">
+            <div style="height:3px;flex:1;background:var(--grad-primary);border-radius:2px"></div>
+            <div style="height:3px;flex:1;background:rgba(255,255,255,0.1);border-radius:2px"></div>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div class="form-group">
+            <label class="form-label">Full Name (as per PAN)</label>
+            <input type="text" class="form-input" placeholder="Rajesh Kumar Sharma">
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+            <div class="form-group">
+              <label class="form-label">Date of Birth</label>
+              <input type="date" class="form-input" style="color-scheme:dark">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Gender</label>
+              <select class="form-input form-select">
+                <option value="">Select</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email Address</label>
+            <input type="email" class="form-input" placeholder="rajesh@example.com">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Current Address</label>
+            <input type="text" class="form-input" placeholder="Flat/House No, Street">
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+            <div class="form-group">
+              <label class="form-label">City</label>
+              <input type="text" class="form-input" placeholder="Mumbai">
+            </div>
+            <div class="form-group">
+              <label class="form-label">PIN Code</label>
+              <input type="text" class="form-input" placeholder="400001" inputmode="numeric" maxlength="6">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">State</label>
+            <select class="form-input form-select">
+              <option value="">Select State</option>
+              <option>Maharashtra</option><option>Delhi</option><option>Karnataka</option>
+              <option>Tamil Nadu</option><option>Gujarat</option><option>Rajasthan</option>
+              <option>Uttar Pradesh</option><option>West Bengal</option>
+            </select>
+          </div>
+        </div>
+
+        <button class="btn-primary" style="width:100%;margin-top:20px" data-next-screen="screen-professional">
+          Next: Professional Info →
+        </button>
+      </div>
+    </div>
+
+    <!-- ── SCREEN 6: PROFESSIONAL DETAILS ──────── -->
+    <div id="screen-professional" class="screen">
+      <div class="screen-content">
+        <div class="top-nav">
+          <button class="back-btn" data-action="back">←</button>
+          <span class="top-nav-title">Professional Details</span>
+          <span style="font-size:12px;color:var(--text-muted)">2/2</span>
+        </div>
+
+        <div style="padding:12px 0 4px">
+          <div style="display:flex;gap:4px;margin-bottom:16px">
+            <div style="height:3px;flex:1;background:var(--grad-primary);border-radius:2px"></div>
+            <div style="height:3px;flex:1;background:var(--grad-primary);border-radius:2px"></div>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div class="form-group">
+            <label class="form-label">Current Occupation</label>
+            <select class="form-input form-select">
+              <option>Financial Advisor</option>
+              <option>Insurance Agent</option>
+              <option>Real Estate Agent</option>
+              <option>CA / Tax Consultant</option>
+              <option>Banker (Ex)</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Years of Experience in Finance</label>
+            <select class="form-input form-select">
+              <option>Less than 1 year</option>
+              <option>1-3 years</option>
+              <option>3-5 years</option>
+              <option>5-10 years</option>
+              <option>More than 10 years</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Product Interest</label>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:4px">
+              ${['Home Loan','LAP','MSME Loan','Personal Loan','Business Loan','Gold Loan'].map(p =>
+                `<div style="padding:7px 14px;background:rgba(108,99,255,0.1);border:1px solid rgba(108,99,255,0.2);border-radius:var(--radius-full);font-size:12px;font-weight:600;cursor:pointer;transition:all 0.2s;color:var(--clr-primary-l)" onclick="this.style.background=this.style.background==='rgba(108,99,255,0.3)rgba(108,99,255,0.1)'?'rgba(108,99,255,0.1)':'rgba(108,99,255,0.3)';this.style.borderColor='var(--clr-primary)'">${p}</div>`
+              ).join('')}
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Empanelled with other NBFCs?</label>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+              <button class="btn-outline" style="font-size:13px" onclick="this.style.background='rgba(108,99,255,0.2)';this.style.borderColor='var(--clr-primary)'">Yes</button>
+              <button class="btn-outline" style="font-size:13px">No</button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Expected Monthly Business Volume</label>
+            <select class="form-input form-select">
+              <option>Below ₹25 Lakhs</option>
+              <option>₹25L – ₹1 Crore</option>
+              <option>₹1Cr – ₹5Cr</option>
+              <option>Above ₹5 Crore</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Referral Code (Optional)</label>
+            <input type="text" class="form-input" placeholder="e.g. DSA-1234">
+          </div>
+        </div>
+
+        <button class="btn-primary" style="width:100%;margin-top:20px" data-next-screen="screen-kyc-pan">
+          Start KYC Verification →
+        </button>
+      </div>
+    </div>
+
+    <!-- ── SCREEN 7: KYC – PAN ─────────────────── -->
+    <div id="screen-kyc-pan" class="screen">
+      <div class="screen-content">
+        <div class="top-nav">
+          <button class="back-btn" data-action="back">←</button>
+          <span class="top-nav-title">KYC — PAN Card</span>
+          <span style="font-size:12px;color:var(--clr-primary-l)">1/6</span>
+        </div>
+
+        <!-- KYC Progress -->
+        <div style="display:flex;align-items:center;gap:0;padding:12px 0 16px">
+          <div style="display:flex;align-items:center;flex:1" class="kyc-step-item">
+            <div class="kyc-step-circle active" style="width:28px;height:28px;font-size:11px">1</div>
+            <div class="kyc-step-connector" style="flex:1;height:2px;background:rgba(255,255,255,0.08)"></div>
+          </div>
+          <div style="display:flex;align-items:center;flex:1" class="kyc-step-item">
+            <div class="kyc-step-circle pending" style="width:28px;height:28px;font-size:11px">2</div>
+            <div class="kyc-step-connector" style="flex:1;height:2px;background:rgba(255,255,255,0.08)"></div>
+          </div>
+          <div style="display:flex;align-items:center;flex:1" class="kyc-step-item">
+            <div class="kyc-step-circle pending" style="width:28px;height:28px;font-size:11px">3</div>
+            <div class="kyc-step-connector" style="flex:1;height:2px;background:rgba(255,255,255,0.08)"></div>
+          </div>
+          <div style="display:flex;align-items:center;flex:1" class="kyc-step-item">
+            <div class="kyc-step-circle pending" style="width:28px;height:28px;font-size:11px">4</div>
+            <div class="kyc-step-connector" style="flex:1;height:2px;background:rgba(255,255,255,0.08)"></div>
+          </div>
+          <div style="display:flex;align-items:center;flex:1" class="kyc-step-item">
+            <div class="kyc-step-circle pending" style="width:28px;height:28px;font-size:11px">5</div>
+            <div class="kyc-step-connector" style="flex:1;height:2px;background:rgba(255,255,255,0.08)"></div>
+          </div>
+          <div class="kyc-step-circle pending" style="width:28px;height:28px;font-size:11px">6</div>
+        </div>
+
+        <h3 style="font-size:18px;font-weight:800;margin-bottom:4px">PAN Card Verification</h3>
+        <p style="font-size:12px;color:var(--text-secondary);margin-bottom:18px">Enter your PAN number for instant NSDL verification</p>
+
+        <!-- PAN Input -->
+        <div class="form-group" style="margin-bottom:14px">
+          <label class="form-label">PAN Number</label>
+          <div style="display:flex;gap:8px">
+            <input id="pan-input" type="text" class="form-input" placeholder="ABCDE1234F" maxlength="10" style="text-transform:uppercase;font-weight:700;letter-spacing:2px;flex:1">
+            <button id="pan-verify-btn" class="btn-primary" style="white-space:nowrap;padding:12px 16px;font-size:13px">Verify</button>
+          </div>
+          <div id="pan-verify-badge" class="verify-badge" style="display:none;margin-top:8px"></div>
+        </div>
+
+        <!-- PAN Upload -->
+        <div style="margin-bottom:14px">
+          <label class="form-label" style="display:block;margin-bottom:8px">Upload PAN Card Image</label>
+          <div class="upload-zone" data-doc="pan">
+            <input type="file" accept="image/*,.pdf">
+            <div class="upload-prompt" style="display:flex;flex-direction:column;align-items:center;gap:10px">
+              <div class="upload-icon-wrap">📋</div>
+              <div class="upload-label">Tap to upload PAN Card</div>
+              <div class="upload-sub">JPG, PNG or PDF · Max 5MB</div>
+            </div>
+            <img class="upload-preview" src="" alt="PAN Preview">
+          </div>
+        </div>
+
+        <div class="glass-card" style="padding:12px 14px;margin-bottom:16px;background:rgba(108,99,255,0.05)">
+          <div style="font-size:11px;color:var(--text-secondary);line-height:1.6">
+            📌 <strong>Why PAN?</strong> Required by RBI for KYC. PAN is verified against NSDL database in real-time. Ensure name matches exactly as per Income Tax records.
+          </div>
+        </div>
+
+        <button class="btn-primary" style="width:100%" data-next-screen="screen-kyc-aadhaar">
+          Next: Aadhaar →
+        </button>
+      </div>
+    </div>
+
+    <!-- ── SCREEN 8: KYC – AADHAAR ──────────────── -->
+    <div id="screen-kyc-aadhaar" class="screen">
+      <div class="screen-content">
+        <div class="top-nav">
+          <button class="back-btn" data-action="back">←</button>
+          <span class="top-nav-title">KYC — Aadhaar</span>
+          <span style="font-size:12px;color:var(--clr-primary-l)">2/6</span>
+        </div>
+
+        <div style="padding:12px 0 8px">
+          <h3 style="font-size:18px;font-weight:800;margin-bottom:4px">Aadhaar Verification</h3>
+          <p style="font-size:12px;color:var(--text-secondary);margin-bottom:16px">Upload both sides of your Aadhaar card</p>
+        </div>
+
+        <div class="form-group" style="margin-bottom:14px">
+          <label class="form-label">Aadhaar Number (last 4 digits)</label>
+          <input type="text" class="form-input" placeholder="XXXX XXXX XXXX" maxlength="14" style="letter-spacing:2px;font-weight:700">
+        </div>
+
+        <div style="margin-bottom:14px">
+          <label class="form-label" style="display:block;margin-bottom:8px">Aadhaar Front Side</label>
+          <div class="upload-zone" data-doc="aadhaarFront">
+            <input type="file" accept="image/*">
+            <div class="upload-prompt" style="display:flex;flex-direction:column;align-items:center;gap:10px">
+              <div class="upload-icon-wrap">🪪</div>
+              <div class="upload-label">Front of Aadhaar Card</div>
+              <div class="upload-sub">Ensure name & photo are visible</div>
+            </div>
+            <img class="upload-preview" src="" alt="Aadhaar Front">
+          </div>
+        </div>
+
+        <div style="margin-bottom:14px">
+          <label class="form-label" style="display:block;margin-bottom:8px">Aadhaar Back Side</label>
+          <div class="upload-zone" data-doc="aadhaarBack">
+            <input type="file" accept="image/*">
+            <div class="upload-prompt" style="display:flex;flex-direction:column;align-items:center;gap:10px">
+              <div class="upload-icon-wrap">🪪</div>
+              <div class="upload-label">Back of Aadhaar Card</div>
+              <div class="upload-sub">Ensure address is visible</div>
+            </div>
+            <img class="upload-preview" src="" alt="Aadhaar Back">
+          </div>
+        </div>
+
+        <div style="padding:12px 14px;background:rgba(255,184,48,0.06);border:1px solid rgba(255,184,48,0.2);border-radius:var(--radius-md);margin-bottom:16px">
+          <div style="font-size:11px;color:var(--clr-amber);line-height:1.6">
+            ⚠️ <strong>Privacy Notice:</strong> Aadhaar data is masked and stored securely per UIDAI guidelines. Only last 4 digits are stored; full number is used only for OTP verification.
+          </div>
+        </div>
+
+        <div style="display:flex;gap:10px">
+          <button class="btn-outline" style="flex:1" data-next-screen="screen-kyc-pan">← Back</button>
+          <button class="btn-primary" style="flex:2" data-next-screen="screen-kyc-selfie">Next: Selfie →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SCREEN 9: KYC – SELFIE ─────────────── -->
+    <div id="screen-kyc-selfie" class="screen">
+      <div class="screen-content">
+        <div class="top-nav">
+          <button class="back-btn" data-action="back">←</button>
+          <span class="top-nav-title">Live Selfie</span>
+          <span style="font-size:12px;color:var(--clr-primary-l)">3/6</span>
+        </div>
+
+        <div style="padding:12px 0 20px">
+          <h3 style="font-size:18px;font-weight:800;margin-bottom:4px">Face Verification</h3>
+          <p style="font-size:12px;color:var(--text-secondary)">Take a live selfie for AI-powered face match against your Aadhaar</p>
+        </div>
+
+        <!-- Selfie Frame -->
+        <div class="selfie-frame-outer" style="margin-bottom:20px">
+          <div class="selfie-frame-inner">
+            <span>👤</span>
+          </div>
+        </div>
+
+        <!-- Instructions -->
+        <div style="display:flex;justify-content:center;gap:20px;margin-bottom:20px">
+          <div style="text-align:center">
+            <div style="font-size:20px;margin-bottom:4px">💡</div>
+            <div style="font-size:10px;color:var(--text-muted)">Good<br>Lighting</div>
+          </div>
+          <div style="text-align:center">
+            <div style="font-size:20px;margin-bottom:4px">🙂</div>
+            <div style="font-size:10px;color:var(--text-muted)">Face<br>Clearly</div>
+          </div>
+          <div style="text-align:center">
+            <div style="font-size:20px;margin-bottom:4px">🚫</div>
+            <div style="font-size:10px;color:var(--text-muted)">No<br>Glasses</div>
+          </div>
+          <div style="text-align:center">
+            <div style="font-size:20px;margin-bottom:4px">🎭</div>
+            <div style="font-size:10px;color:var(--text-muted)">No<br>Mask</div>
+          </div>
+        </div>
+
+        <div id="face-match-badge" class="verify-badge" style="display:none;margin:0 auto 16px;width:fit-content"></div>
+
+        <button id="selfie-capture-btn" class="btn-primary" style="width:100%;margin-bottom:12px">
+          📸 Capture Selfie
+        </button>
+
+        <div style="display:flex;gap:10px">
+          <button class="btn-outline" style="flex:1" data-next-screen="screen-kyc-aadhaar">← Back</button>
+          <button class="btn-primary" style="flex:2" data-next-screen="screen-kyc-business">Next →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SCREEN 10: KYC – BUSINESS PROOF ──────── -->
+    <div id="screen-kyc-business" class="screen">
+      <div class="screen-content">
+        <div class="top-nav">
+          <button class="back-btn" data-action="back">←</button>
+          <span class="top-nav-title">Business Proof</span>
+          <span style="font-size:12px;color:var(--clr-primary-l)">4/6</span>
+        </div>
+
+        <div style="padding:12px 0 8px">
+          <h3 style="font-size:18px;font-weight:800;margin-bottom:4px">Business Documentation</h3>
+          <p style="font-size:12px;color:var(--text-secondary);margin-bottom:16px">Upload any one valid business proof</p>
+        </div>
+
+        <!-- Doc Type Selector -->
+        <div class="form-group" style="margin-bottom:14px">
+          <label class="form-label">Document Type</label>
+          <select class="form-input form-select" id="biz-doc-type">
+            <option>GST Certificate</option>
+            <option>MSME / Udyam Certificate</option>
+            <option>Shop & Establishment Act</option>
+            <option>Trade License</option>
+            <option>Professional Tax Certificate</option>
+          </select>
+        </div>
+
+        <div style="margin-bottom:14px">
+          <div class="upload-zone" data-doc="businessProof">
+            <input type="file" accept="image/*,.pdf">
+            <div class="upload-prompt" style="display:flex;flex-direction:column;align-items:center;gap:10px">
+              <div class="upload-icon-wrap">🏢</div>
+              <div class="upload-label">Upload Business Document</div>
+              <div class="upload-sub">JPG, PNG or PDF · Max 5MB</div>
+            </div>
+            <img class="upload-preview" src="" alt="Business Doc">
+          </div>
+        </div>
+
+        <!-- GST Details -->
+        <div class="form-group" style="margin-bottom:10px">
+          <label class="form-label">GSTIN (if applicable)</label>
+          <input type="text" class="form-input" placeholder="27XXXXX1234X1ZX" maxlength="15" style="text-transform:uppercase;letter-spacing:1.5px">
+        </div>
+
+        <div class="form-group" style="margin-bottom:16px">
+          <label class="form-label">Business Name</label>
+          <input type="text" class="form-input" placeholder="ABC Financial Services">
+        </div>
+
+        <div style="display:flex;gap:10px">
+          <button class="btn-outline" style="flex:1" data-next-screen="screen-kyc-selfie">← Back</button>
+          <button class="btn-primary" style="flex:2" data-next-screen="screen-kyc-bank">Next →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SCREEN 11: KYC – BANK VERIFICATION ───── -->
+    <div id="screen-kyc-bank" class="screen">
+      <div class="screen-content">
+        <div class="top-nav">
+          <button class="back-btn" data-action="back">←</button>
+          <span class="top-nav-title">Bank Verification</span>
+          <span style="font-size:12px;color:var(--clr-primary-l)">5/6</span>
+        </div>
+
+        <div style="padding:12px 0 8px">
+          <h3 style="font-size:18px;font-weight:800;margin-bottom:4px">Bank Account Details</h3>
+          <p style="font-size:12px;color:var(--text-secondary);margin-bottom:16px">For commission payout — verified via penny drop</p>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:14px">
+          <div class="form-group">
+            <label class="form-label">Account Holder Name</label>
+            <input type="text" class="form-input" placeholder="As per bank records">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Account Number</label>
+            <input type="text" class="form-input" placeholder="XXXXXXXXXXXXXXXX" inputmode="numeric">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Confirm Account Number</label>
+            <input type="text" class="form-input" placeholder="Re-enter account number" inputmode="numeric">
+          </div>
+          <div class="form-group">
+            <label class="form-label">IFSC Code</label>
+            <input type="text" class="form-input" placeholder="HDFC0001234" style="text-transform:uppercase;letter-spacing:1px">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Account Type</label>
+            <select class="form-input form-select">
+              <option>Savings Account</option>
+              <option>Current Account</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="margin-bottom:14px">
+          <label class="form-label" style="display:block;margin-bottom:8px">Upload Cancelled Cheque / Bank Statement</label>
+          <div class="upload-zone" data-doc="bankDoc">
+            <input type="file" accept="image/*,.pdf">
+            <div class="upload-prompt" style="display:flex;flex-direction:column;align-items:center;gap:10px">
+              <div class="upload-icon-wrap">🏦</div>
+              <div class="upload-label">Cancelled Cheque or Statement</div>
+              <div class="upload-sub">3-month statement for current account</div>
+            </div>
+            <img class="upload-preview" src="" alt="Bank Doc">
+          </div>
+        </div>
+
+        <button id="bank-verify-btn" class="btn-outline" style="width:100%;margin-bottom:10px">
+          🔍 Verify via Penny Drop
+        </button>
+        <div id="bank-verify-status" class="bank-verify-status" style="display:none;margin-bottom:14px"></div>
+
+        <div style="display:flex;gap:10px">
+          <button class="btn-outline" style="flex:1" data-next-screen="screen-kyc-business">← Back</button>
+          <button class="btn-primary" style="flex:2" data-next-screen="screen-kyc-agreement">Next →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SCREEN 12: KYC – DSA AGREEMENT ───────── -->
+    <div id="screen-kyc-agreement" class="screen">
+      <div class="screen-content">
+        <div class="top-nav">
+          <button class="back-btn" data-action="back">←</button>
+          <span class="top-nav-title">DSA Agreement</span>
+          <span style="font-size:12px;color:var(--clr-primary-l)">6/6</span>
+        </div>
+
+        <div style="padding:12px 0 8px">
+          <h3 style="font-size:18px;font-weight:800;margin-bottom:4px">Sign DSA Agreement</h3>
+          <p style="font-size:12px;color:var(--text-secondary);margin-bottom:16px">Please read and sign the DSA empanelment agreement</p>
+        </div>
+
+        <!-- Agreement Preview -->
+        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius-md);padding:14px;height:180px;overflow-y:auto;margin-bottom:14px;font-size:11px;color:var(--text-secondary);line-height:1.7">
+          <strong style="color:var(--text-primary);font-size:12px">DSA EMPANELMENT AGREEMENT</strong><br><br>
+          This DSA Empanelment Agreement ("Agreement") is entered into between <strong>FinFlow NBFC Limited</strong>, a company incorporated under the Companies Act, 2013, having its registered office at Mumbai, Maharashtra ("NBFC") and the applicant ("DSA/Partner").<br><br>
+          <strong>1. Appointment:</strong> The NBFC hereby appoints the DSA as a non-exclusive Direct Selling Agent for sourcing loan applications and financial products offered by the NBFC.<br><br>
+          <strong>2. Scope of Work:</strong> The DSA shall source loan applications from prospective customers, assist in documentation, and coordinate with the NBFC's credit team for processing.<br><br>
+          <strong>3. Commission Structure:</strong> Commission rates shall be as per the commission schedule annexed hereto, payable on disbursement subject to first EMI clearance.<br><br>
+          <strong>4. Compliance:</strong> The DSA shall comply with all applicable laws, RBI guidelines, and the NBFC's internal policies including KYC/AML norms.<br><br>
+          <strong>5. Term:</strong> This agreement is valid for 1 year from the date of execution, auto-renewable on mutually agreed terms.
+        </div>
+
+        <!-- Checkboxes -->
+        <div style="margin-bottom:16px">
+          <div class="check-item">
+            <div class="custom-check" id="check-1"></div>
+            <div class="check-text">I have read, understood, and agree to the DSA Empanelment Agreement and all its terms & conditions</div>
+          </div>
+          <div class="check-item">
+            <div class="custom-check" id="check-2"></div>
+            <div class="check-text">I confirm that all documents uploaded are genuine and I consent to CIBIL/KYC verification</div>
+          </div>
+          <div class="check-item">
+            <div class="custom-check" id="check-3"></div>
+            <div class="check-text">I agree to comply with RBI guidelines, PMLA 2002, and DPDP Act 2023 in all my activities as DSA</div>
+          </div>
+        </div>
+
+        <!-- E-Signature -->
+        <div style="margin-bottom:16px">
+          <label class="form-label" style="display:block;margin-bottom:8px">E-Signature (Draw in box below)</label>
+          <div class="signature-pad">
+            <canvas id="sig-canvas"></canvas>
+            <div class="signature-pad-label">
+              <div style="font-size:24px;margin-bottom:4px">✍️</div>
+              <div style="font-size:12px">Draw your signature here</div>
+            </div>
+          </div>
+          <div style="display:flex;justify-content:flex-end;margin-top:6px">
+            <button id="sig-clear" style="background:none;border:none;color:var(--clr-coral);font-size:12px;cursor:pointer;font-family:var(--font-ui)">✕ Clear</button>
+          </div>
+        </div>
+
+        <button id="agreement-submit" class="btn-primary" style="width:100%;opacity:0.5" disabled data-next-screen="screen-review">
+          Submit & Review Application →
+        </button>
+      </div>
+    </div>
+
+    <!-- ── SCREEN 13: REVIEW ─────────────────────── -->
+    <div id="screen-review" class="screen">
+      <div class="screen-content">
+        <div class="top-nav">
+          <button class="back-btn" data-action="back">←</button>
+          <span class="top-nav-title">Review Application</span>
+          <div style="width:36px"></div>
+        </div>
+
+        <div style="padding:12px 0 16px">
+          <h3 style="font-size:18px;font-weight:800;margin-bottom:4px">Application Summary</h3>
+          <p style="font-size:12px;color:var(--text-secondary)">Please review before final submission</p>
+        </div>
+
+        <!-- Review Sections -->
+        <div class="review-section">
+          <div class="review-section-title">👤 Personal Details</div>
+          <div class="glass-card" style="padding:0;overflow:hidden">
+            <div class="review-row"><span class="review-label">Name</span><span class="review-value">Rajesh Kumar Sharma</span></div>
+            <div class="review-row"><span class="review-label">Mobile</span><span class="review-value">+91 98XXXXXXXX</span></div>
+            <div class="review-row"><span class="review-label">Email</span><span class="review-value">rajesh@example.com</span></div>
+            <div class="review-row"><span class="review-label">DOB</span><span class="review-value">15 March 1985</span></div>
+            <div class="review-row"><span class="review-label">City</span><span class="review-value">Mumbai, Maharashtra</span></div>
+          </div>
+        </div>
+
+        <div class="review-section">
+          <div class="review-section-title">💼 Partner Details</div>
+          <div class="glass-card" style="padding:0;overflow:hidden">
+            <div class="review-row"><span class="review-label">Type</span><span class="review-value"><span class="badge badge-primary">DSA Partner</span></span></div>
+            <div class="review-row"><span class="review-label">Experience</span><span class="review-value">5-10 years</span></div>
+            <div class="review-row"><span class="review-label">Products</span><span class="review-value">Home Loan, LAP</span></div>
+            <div class="review-row"><span class="review-label">Volume</span><span class="review-value">₹1Cr – ₹5Cr/month</span></div>
+          </div>
+        </div>
+
+        <div class="review-section">
+          <div class="review-section-title">🔍 KYC Status</div>
+          <div class="glass-card" style="padding:0;overflow:hidden">
+            <div class="review-row"><span class="review-label">PAN</span><span class="review-value badge badge-success">✅ Verified</span></div>
+            <div class="review-row"><span class="review-label">Aadhaar</span><span class="review-value badge badge-success">✅ Uploaded</span></div>
+            <div class="review-row"><span class="review-label">Selfie</span><span class="review-value badge badge-success">✅ Face Match 98%</span></div>
+            <div class="review-row"><span class="review-label">Business</span><span class="review-value badge badge-success">✅ GST Uploaded</span></div>
+            <div class="review-row"><span class="review-label">Bank A/C</span><span class="review-value badge badge-success">✅ Penny Drop Verified</span></div>
+            <div class="review-row"><span class="review-label">Agreement</span><span class="review-value badge badge-success">✅ e-Signed</span></div>
+          </div>
+        </div>
+
+        <div style="padding:14px;background:rgba(108,99,255,0.06);border:1px solid rgba(108,99,255,0.15);border-radius:var(--radius-md);margin-bottom:16px">
+          <div style="font-size:12px;color:var(--clr-primary-l);font-weight:600;margin-bottom:4px">⏱️ Expected Timeline</div>
+          <div style="font-size:11px;color:var(--text-secondary);line-height:1.6">Application will be reviewed by our team within <strong style="color:var(--text-primary)">1-2 working days</strong>. You'll receive updates via SMS & email.</div>
+        </div>
+
+        <button class="btn-primary" style="width:100%;background:var(--grad-success);padding:16px" data-next-screen="screen-success">
+          🚀 Submit Application
+        </button>
+      </div>
+    </div>
+
+    <!-- ── SCREEN 14: SUCCESS ────────────────────── -->
+    <div id="screen-success" class="screen">
+      <div class="success-screen">
+        <div class="success-check">
+          <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+            <path d="M10 22L18 30L34 14" stroke="#00E5A0" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="40" style="animation:check-draw 0.6s ease 0.3s forwards;stroke-dashoffset:40"/>
+          </svg>
+        </div>
+
+        <div class="anim-fade-up delay-200">
+          <h2 style="font-size:24px;font-weight:900;margin-bottom:8px">Application<br><span class="text-gradient-success">Submitted!</span></h2>
+          <p style="font-size:13px;color:var(--text-secondary);line-height:1.6">Your DSA onboarding application has been received. Our team will review and get back to you shortly.</p>
+        </div>
+
+        <div class="glass-card anim-fade-up delay-300" style="width:100%;padding:16px;text-align:center">
+          <div style="font-size:11px;color:var(--text-muted);margin-bottom:6px">APPLICATION ID</div>
+          <div style="font-size:22px;font-weight:900;font-family:var(--font-display);letter-spacing:2px;color:var(--clr-emerald)">DSA-2026-08421</div>
+          <div style="font-size:11px;color:var(--text-muted);margin-top:4px">Save this for reference</div>
+        </div>
+
+        <div class="anim-fade-up delay-400" style="width:100%;display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;align-items:center;gap:10px;padding:12px;background:rgba(255,255,255,0.03);border-radius:var(--radius-md)">
+            <span style="font-size:20px">📧</span>
+            <div style="font-size:12px;color:var(--text-secondary)">Confirmation sent to <strong style="color:var(--text-primary)">rajesh@example.com</strong></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;padding:12px;background:rgba(255,255,255,0.03);border-radius:var(--radius-md)">
+            <span style="font-size:20px">📱</span>
+            <div style="font-size:12px;color:var(--text-secondary)">SMS sent to <strong style="color:var(--text-primary)">+91 98XXXXXXXX</strong></div>
+          </div>
+        </div>
+
+        <div class="anim-fade-up delay-500" style="width:100%;display:flex;gap:10px">
+          <button class="btn-outline" style="flex:1;font-size:13px" data-next-screen="screen-home">Go Home</button>
+          <button class="btn-primary" style="flex:1;font-size:13px" onclick="alert('Tracking ID: DSA-2026-08421')">Track Status</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SCREEN 15: HOME (Post-login) ──────────── -->
+    <div id="screen-home" class="screen">
+      <div class="home-hero">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+          <div>
+            <div class="home-greeting">Good Evening, <span class="text-gradient">Rajesh!</span> 👋</div>
+            <div class="home-subtitle">DSA Partner · Code: DSA-08421</div>
+          </div>
+          <div style="width:42px;height:42px;background:var(--grad-primary);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;color:white">RK</div>
+        </div>
+
+        <!-- Status Banner -->
+        <div style="background:rgba(0,229,160,0.08);border:1px solid rgba(0,229,160,0.2);border-radius:var(--radius-md);padding:12px 14px;display:flex;align-items:center;gap:10px;margin-bottom:12px">
+          <span style="font-size:20px">🟢</span>
+          <div>
+            <div style="font-size:12px;font-weight:700;color:var(--clr-emerald)">KYC Approved</div>
+            <div style="font-size:11px;color:var(--text-muted)">Your account is active and verified</div>
+          </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats-row">
+          <div class="stat-mini">
+            <div class="stat-mini-value text-gradient">28</div>
+            <div class="stat-mini-label">Leads</div>
+          </div>
+          <div class="stat-mini">
+            <div class="stat-mini-value" style="color:var(--clr-emerald)">₹4.2Cr</div>
+            <div class="stat-mini-label">Disbursed</div>
+          </div>
+          <div class="stat-mini">
+            <div class="stat-mini-value" style="color:var(--clr-amber)">₹84K</div>
+            <div class="stat-mini-label">Earned</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="screen-content">
+        <!-- Quick Actions -->
+        <div class="section-title-row">
+          <div class="section-title">Quick Actions</div>
+        </div>
+        <div class="quick-actions" style="margin-bottom:20px">
+          <div class="quick-action" data-next-screen="screen-lead-form">
+            <div class="qa-icon" style="background:rgba(108,99,255,0.15)">➕</div>
+            <div class="qa-label">New Lead</div>
+          </div>
+          <div class="quick-action">
+            <div class="qa-icon" style="background:rgba(0,212,255,0.12)">📊</div>
+            <div class="qa-label">My Leads</div>
+          </div>
+          <div class="quick-action">
+            <div class="qa-icon" style="background:rgba(0,229,160,0.12)">💰</div>
+            <div class="qa-label">Payouts</div>
+          </div>
+          <div class="quick-action" onclick="window.open('dashboard.html','_blank')">
+            <div class="qa-icon" style="background:rgba(255,184,48,0.12)">🖥️</div>
+            <div class="qa-label">Dashboard</div>
+          </div>
+        </div>
+
+        <!-- Recent Leads -->
+        <div class="section-title-row">
+          <div class="section-title">Recent Leads</div>
+          <span class="section-link">View All →</span>
+        </div>
+        <div id="lead-list"></div>
+
+        <!-- Commission Card -->
+        <div class="glass-card" style="padding:16px;margin-top:4px;background:linear-gradient(135deg,rgba(108,99,255,0.1) 0%,rgba(0,212,255,0.06) 100%)">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start">
+            <div>
+              <div style="font-size:11px;color:var(--text-muted);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:6px">Next Payout</div>
+              <div style="font-size:28px;font-weight:900;font-family:var(--font-display);color:var(--clr-emerald)">₹84,200</div>
+              <div style="font-size:11px;color:var(--text-muted);margin-top:4px">Due on 15 Jun 2026</div>
+            </div>
+            <div style="font-size:36px">💸</div>
+          </div>
+          <div style="margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.06);display:flex;gap:16px">
+            <div><div style="font-size:11px;color:var(--text-muted)">This Month</div><div style="font-size:14px;font-weight:700;color:var(--clr-emerald)">₹1.2L</div></div>
+            <div><div style="font-size:11px;color:var(--text-muted)">Pending</div><div style="font-size:14px;font-weight:700;color:var(--clr-amber)">₹42K</div></div>
+            <div><div style="font-size:11px;color:var(--text-muted)">YTD</div><div style="font-size:14px;font-weight:700;color:var(--clr-cyan)">₹8.4L</div></div>
+          </div>
+        </div>
+
+        <div style="height:88px"></div><!-- Bottom nav spacer -->
+      </div>
+
+      <!-- Bottom Navigation -->
+      <div class="mobile-nav">
+        <div class="nav-item active" data-screen="screen-home">
+          <span class="nav-icon">🏠</span>
+          <span class="nav-label">Home</span>
+        </div>
+        <div class="nav-item" data-screen="screen-lead-form">
+          <span class="nav-icon">📝</span>
+          <span class="nav-label">Leads</span>
+        </div>
+        <div class="nav-item fab" data-screen="screen-lead-form">➕</div>
+        <div class="nav-item">
+          <span class="nav-icon">💰</span>
+          <span class="nav-label">Payouts</span>
+        </div>
+        <div class="nav-item">
+          <span class="nav-icon">👤</span>
+          <span class="nav-label">Profile</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SCREEN 16: LEAD SUBMISSION FORM ─────── -->
+    <div id="screen-lead-form" class="screen">
+      <div class="screen-content">
+        <div class="top-nav">
+          <button class="back-btn" data-action="back">←</button>
+          <span class="top-nav-title">New Lead</span>
+          <div style="width:36px"></div>
+        </div>
+
+        <div style="padding:4px 0 16px">
+          <h3 style="font-size:18px;font-weight:800;margin-bottom:4px">Submit a New Lead</h3>
+          <p style="font-size:12px;color:var(--text-secondary)">All fields marked * are mandatory</p>
+        </div>
+
+        <!-- Customer Details -->
+        <div class="lead-form-section">
+          <div class="lead-form-title">👤 Customer Details</div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <div class="form-group">
+              <label class="form-label">Customer Name *</label>
+              <input type="text" class="form-input" placeholder="Full Name">
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+              <div class="form-group">
+                <label class="form-label">Mobile *</label>
+                <input type="tel" class="form-input" placeholder="98XXXXXXXX" inputmode="numeric">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Alt Mobile</label>
+                <input type="tel" class="form-input" placeholder="Optional" inputmode="numeric">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email</label>
+              <input type="email" class="form-input" placeholder="customer@example.com">
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+              <div class="form-group">
+                <label class="form-label">Date of Birth</label>
+                <input type="date" class="form-input" style="color-scheme:dark">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Employment *</label>
+                <select class="form-input form-select">
+                  <option>Salaried</option>
+                  <option>Self Employed</option>
+                  <option>Business</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Loan Details -->
+        <div class="lead-form-section">
+          <div class="lead-form-title">🏦 Loan Details</div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <div class="form-group">
+              <label class="form-label">Product *</label>
+              <select class="form-input form-select">
+                <option>Home Loan</option>
+                <option>Loan Against Property</option>
+                <option>MSME Loan</option>
+                <option>Personal Loan</option>
+                <option>Business Loan</option>
+                <option>Gold Loan</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Loan Amount Required *</label>
+              <div class="amount-display">
+                <div id="amount-display" class="amount-big text-gradient">₹25L</div>
+              </div>
+              <input id="amount-slider" type="range" min="100000" max="10000000" step="100000" value="2500000">
+              <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--text-muted)">
+                <span>₹1L</span><span>₹1Cr+</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Tenure</label>
+              <select class="form-input form-select">
+                <option>12 months</option>
+                <option>24 months</option>
+                <option>36 months</option>
+                <option>60 months</option>
+                <option>84 months</option>
+                <option>120 months</option>
+                <option>180 months</option>
+                <option>240 months</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Property Location (if applicable)</label>
+              <input type="text" class="form-input" placeholder="City, State">
+            </div>
+          </div>
+        </div>
+
+        <!-- Income Details -->
+        <div class="lead-form-section">
+          <div class="lead-form-title">💼 Income & Financial</div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <div class="form-group">
+              <label class="form-label">Monthly Income</label>
+              <input type="text" class="form-input" placeholder="₹ Gross monthly income" inputmode="numeric">
+            </div>
+            <div class="form-group">
+              <label class="form-label">CIBIL Score (approx)</label>
+              <select class="form-input form-select">
+                <option>750+ (Excellent)</option>
+                <option>700-749 (Good)</option>
+                <option>650-699 (Fair)</option>
+                <option>Below 650 (Poor)</option>
+                <option>No Credit History</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Documents -->
+        <div class="lead-form-section">
+          <div class="lead-form-title">📄 Attach Documents</div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div class="upload-zone" style="padding:16px" data-doc="lead-kyc">
+              <input type="file" accept="image/*,.pdf" multiple>
+              <div class="upload-prompt" style="display:flex;flex-direction:column;align-items:center;gap:6px">
+                <div style="font-size:24px">📎</div>
+                <div class="upload-label" style="font-size:12px">Attach KYC + Income Docs</div>
+                <div class="upload-sub">Select multiple files</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn-primary" style="width:100%;margin-bottom:16px;padding:16px;font-size:15px" onclick="this.innerHTML='✅ Lead Submitted!';this.style.background='var(--grad-success)';setTimeout(()=>{this.innerHTML='Submit Lead →';this.style.background=''},3000)">
+          Submit Lead →
+        </button>
+
+        <div style="height:20px"></div>
+      </div>
+    </div>
+
+  </div><!-- /screen-container -->
+
+  <!-- Home Indicator -->
+  <div class="home-indicator"></div>
+</div><!-- /phone-frame -->
+
+<script src="js/app.js"></script>
+<script>
+  // Register Service Worker
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js')
+        .then(reg => console.log('[FinFlow] SW registered:', reg.scope))
+        .catch(err => console.log('[FinFlow] SW failed:', err));
+    });
+  }
+</script>
+</body>
+</html>
