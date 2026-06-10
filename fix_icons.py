@@ -42,7 +42,7 @@ def main():
         
     base_icon = os.path.join(icons_dir, "icon-512.png")
     
-    sizes = [72, 96, 128, 144, 152, 192, 384, 512]
+    sizes = [48, 72, 96, 128, 144, 152, 192, 256, 384, 512]
     
     # Save base icon to itself to ensure it's a valid PNG and not just renamed
     try:
