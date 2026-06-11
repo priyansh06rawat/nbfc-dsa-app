@@ -2,7 +2,7 @@
    India Shelter Home Loan — Service Worker (PWA Offline Support)
    ============================================================ */
 
-const CACHE_NAME = 'india-shelter-home-loan-v1.0.1';
+const CACHE_NAME = 'india-shelter-home-loan-v1.0.2';
 const CACHE_URLS = [
   '/',
   '/index.html',
