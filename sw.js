@@ -2,7 +2,7 @@
    India Shelter Home Loan — Service Worker (PWA Offline Support)
    ============================================================ */
 
-const CACHE_NAME = 'india-shelter-home-loan-v1.0.2';
+const CACHE_NAME = 'india-shelter-home-loan-v1.0.3';
 const CACHE_URLS = [
   '/',
   '/index.html',
@@ -13,8 +13,8 @@ const CACHE_URLS = [
   '/css/dashboard.css',
   '/js/app.js',
   '/js/dashboard.js',
-  '/icons/icon-192.png',
-  '/icons/icon-512.png',
+  '/icons/icon-192.png?v=3',
+  '/icons/icon-512.png?v=3',
   'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap'
 ];
 
@@ -107,8 +107,8 @@ self.addEventListener('push', (event) => {
   const title = data.title || 'India Shelter Home Loan';
   const options = {
     body: data.body || 'You have a new notification',
-    icon: '/icons/icon-192.png',
-    badge: '/icons/icon-96.png',
+    icon: '/icons/icon-192.png?v=3',
+    badge: '/icons/icon-96.png?v=3',
     vibrate: [100, 50, 100],
     data: { url: data.url || '/' },
     actions: [
