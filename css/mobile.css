@@ -91,7 +91,8 @@ body.mobile-view {
 }
 
 /* When nav bar is shown, shrink screen-container accordingly */
-.phone-frame:has(.mobile-nav.visible) .screen-container {
+.phone-frame:has(.mobile-nav.visible) .screen-container,
+.phone-frame.nav-visible .screen-container {
   bottom: calc(34px + 72px);
 }
 
@@ -1162,8 +1163,13 @@ input[type="range"]::-webkit-slider-thumb:hover {
     bottom: 0;
   }
   /* On real mobile, nav sits at bottom of viewport */
-  .phone-frame:has(.mobile-nav.visible) .screen-container {
-    bottom: 72px;
+  .phone-frame:has(.mobile-nav.visible)  .screen-container {
+    top: 0;
+    bottom: 0;
+  }
+  .phone-frame:has(.mobile-nav.visible) .screen-container,
+  .phone-frame.nav-visible .screen-container {
+    bottom: calc(72px + env(safe-area-inset-bottom, 0px));
   }
   .mobile-nav {
     bottom: 0;
@@ -1197,4 +1203,66 @@ input[type="range"]::-webkit-slider-thumb:hover {
 }
 .fab {
   box-shadow: 0 4px 15px rgba(222,31,38,0.3);
+}
+
+/* ── Filter Chips (All Leads screen) ── */
+.filter-chip {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  font-weight: 600;
+  background: #F8F9FA;
+  border: 1.5px solid #E2E8F0;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.filter-chip:hover {
+  border-color: var(--clr-primary);
+  color: var(--clr-primary);
+  background: rgba(222,31,38,0.04);
+}
+
+.filter-chip.active {
+  background: var(--grad-primary);
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 2px 10px rgba(222,31,38,0.3);
+}
+
+/* ── Profile Row (Profile screen) ── */
+.profile-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid #F0F2F5;
+}
+
+.profile-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.profile-value {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-align: right;
+  max-width: 55%;
+}
+
+.profile-action {
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.profile-action:hover {
+  background: #F8F9FA;
 }
