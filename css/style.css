@@ -6,34 +6,34 @@
 
 /* ── CSS Custom Properties ── */
 :root {
-  --bg-primary:    #070B18;
-  --bg-secondary:  #0D1326;
-  --bg-card:       rgba(255,255,255,0.04);
-  --bg-card-hover: rgba(255,255,255,0.07);
+  --bg-primary:    #FFFFFF; /* pure white background */
+  --bg-secondary:  #FFFFFF; /* white container background */
+  --bg-card:       #FFFFFF; /* pure white cards */
+  --bg-card-hover: #F1F3F5; 
 
-  --clr-primary:   #6C63FF;
-  --clr-primary-l: #9D97FF;
-  --clr-cyan:      #00D4FF;
-  --clr-emerald:   #00E5A0;
-  --clr-amber:     #FFB830;
-  --clr-coral:     #FF6B6B;
-  --clr-purple:    #B06EFF;
+  --clr-primary:   #DE1F26; /* India Shelter Red */
+  --clr-primary-l: #FF4D52; /* Lighter red */
+  --clr-cyan:      #E53935; /* Standard warm red */
+  --clr-emerald:   #2E7D32; /* Success green */
+  --clr-amber:     #EF6C00; /* Amber warning */
+  --clr-coral:     #C62828; /* Coral red */
+  --clr-purple:    #6A1B29; /* Deep wine red */
 
-  --grad-primary:  linear-gradient(135deg, #6C63FF 0%, #00D4FF 100%);
-  --grad-card:     linear-gradient(135deg, rgba(108,99,255,0.12) 0%, rgba(0,212,255,0.06) 100%);
-  --grad-success:  linear-gradient(135deg, #00E5A0 0%, #00D4FF 100%);
-  --grad-hero:     linear-gradient(180deg, #0A0F2E 0%, #070B18 60%, #0A0F1E 100%);
+  --grad-primary:  linear-gradient(135deg, #DE1F26 0%, #FF5A60 100%);
+  --grad-card:     linear-gradient(135deg, rgba(222,31,38,0.06) 0%, rgba(222,31,38,0.02) 100%);
+  --grad-success:  linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+  --grad-hero:     linear-gradient(180deg, #FFFFFF 0%, #F8F9FA 60%, #E9ECEF 100%);
 
-  --border-glass:  1px solid rgba(255,255,255,0.08);
-  --border-glow:   1px solid rgba(108,99,255,0.35);
+  --border-glass:  1px solid rgba(0,0,0,0.08);
+  --border-glow:   1px solid rgba(222,31,38,0.25);
 
-  --shadow-card:   0 8px 32px rgba(0,0,0,0.4);
-  --shadow-glow:   0 0 30px rgba(108,99,255,0.25);
-  --shadow-cyan:   0 0 30px rgba(0,212,255,0.2);
+  --shadow-card:   0 8px 30px rgba(0,0,0,0.04);
+  --shadow-glow:   0 0 25px rgba(222,31,38,0.08);
+  --shadow-cyan:   0 0 25px rgba(222,31,38,0.04);
 
-  --text-primary:  #F0F4FF;
-  --text-secondary:#8892B0;
-  --text-muted:    #4A5568;
+  --text-primary:  #1A202C; /* Dark text */
+  --text-secondary:#4A5568; /* Slate text */
+  --text-muted:    #718096; /* Muted gray text */
 
   --radius-sm:  8px;
   --radius-md:  14px;
@@ -250,20 +250,20 @@ h1, h2, h3, h4, h5, h6 {
 
 .bg-orb-1 {
   width: 500px; height: 500px;
-  background: rgba(108,99,255,0.12);
+  background: rgba(222,31,38,0.05);
   top: -150px; right: -100px;
 }
 
 .bg-orb-2 {
   width: 400px; height: 400px;
-  background: rgba(0,212,255,0.08);
+  background: rgba(239,108,0,0.03);
   bottom: -100px; left: -80px;
   animation-delay: -4s;
 }
 
 .bg-orb-3 {
   width: 300px; height: 300px;
-  background: rgba(176,110,255,0.08);
+  background: rgba(222,31,38,0.03);
   top: 50%; left: 40%;
   animation-delay: -2s;
 }
@@ -395,3 +395,41 @@ h1, h2, h3, h4, h5, h6 {
 .delay-300 { animation-delay: 0.3s; }
 .delay-400 { animation-delay: 0.4s; }
 .delay-500 { animation-delay: 0.5s; }
+
+/* ── Light Theme Overrides ── */
+.form-input {
+  background: #FFFFFF !important;
+  border: 1px solid #D2D6DC !important;
+  color: var(--text-primary) !important;
+}
+.form-input::placeholder {
+  color: #9AA5B1 !important;
+}
+.form-input:focus {
+  border-color: var(--clr-primary) !important;
+  box-shadow: 0 0 0 3px rgba(222, 31, 38, 0.15) !important;
+}
+.btn-outline {
+  border: 1.5px solid rgba(222,31,38,0.5) !important;
+  color: var(--clr-primary) !important;
+}
+.btn-outline:hover {
+  background: rgba(222,31,38,0.08) !important;
+  border-color: var(--clr-primary) !important;
+  color: var(--clr-primary) !important;
+}
+.shimmer {
+  background: linear-gradient(90deg, rgba(0,0,0,0.03) 25%, rgba(0,0,0,0.06) 50%, rgba(0,0,0,0.03) 75%) !important;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.15) !important;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(222,31,38,0.4) !important;
+}
+body {
+  color: var(--text-primary) !important;
+}
+a {
+  color: var(--clr-primary);
+}

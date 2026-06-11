@@ -988,3 +988,168 @@ tbody td {
 }
 
 .tooltip:hover::before { opacity: 1; }
+
+/* ── Light Theme Dashboard Overrides ── */
+.sidebar {
+  border-right: 1px solid #E2E8F0 !important;
+}
+.sidebar-logo {
+  border-bottom: 1px solid #E2E8F0 !important;
+}
+.sidebar-logo-sub {
+  color: var(--text-muted) !important;
+}
+.sidebar-item:hover {
+  background: #F1F3F5 !important;
+  color: var(--text-primary) !important;
+}
+.sidebar-item.active {
+  background: rgba(222,31,38,0.08) !important;
+  color: var(--clr-primary) !important;
+}
+.sidebar-item.active::before {
+  background: var(--clr-primary) !important;
+}
+.sidebar-badge {
+  background: var(--clr-primary) !important;
+  color: white !important;
+}
+.sidebar-footer {
+  border-top: 1px solid #E2E8F0 !important;
+}
+.sidebar-user:hover {
+  background: #F1F3F5 !important;
+}
+.top-header {
+  background: rgba(255,255,255,0.85) !important;
+  border-bottom: 1px solid #E2E8F0 !important;
+  color: var(--text-primary) !important;
+}
+.header-search {
+  background: #F8F9FA !important;
+  border: 1px solid #D2D6DC !important;
+}
+.header-search:focus-within {
+  border-color: rgba(222,31,38,0.4) !important;
+  background: #FFFFFF !important;
+}
+.header-icon-btn {
+  background: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  color: var(--text-primary) !important;
+}
+.header-icon-btn:hover {
+  background: #F1F3F5 !important;
+  border-color: #D2D6DC !important;
+}
+.funnel-bar-wrap {
+  background: #F8F9FA !important;
+}
+.funnel-bar {
+  color: white !important;
+}
+.funnel-count {
+  color: var(--text-primary) !important;
+}
+.data-table-header {
+  border-bottom: 1px solid #E2E8F0 !important;
+}
+.filter-pill {
+  background: #FFFFFF !important;
+  border: 1px solid #D2D6DC !important;
+  color: var(--text-secondary) !important;
+}
+.filter-pill:hover {
+  color: var(--text-primary) !important;
+  background: #F1F3F5 !important;
+}
+.filter-pill.active {
+  background: rgba(222,31,38,0.1) !important;
+  border-color: var(--clr-primary) !important;
+  color: var(--clr-primary) !important;
+}
+thead th {
+  background: #F8F9FA !important;
+  border-bottom: 1px solid #E2E8F0 !important;
+  color: var(--text-secondary) !important;
+}
+tbody tr {
+  border-bottom: 1px solid #E2E8F0 !important;
+}
+tbody tr:hover {
+  background: rgba(222,31,38,0.01) !important;
+}
+.action-btn {
+  background: #FFFFFF !important;
+  border: 1px solid #D2D6DC !important;
+}
+.action-btn:hover {
+  background: rgba(222,31,38,0.08) !important;
+  border-color: var(--clr-primary) !important;
+  color: var(--clr-primary) !important;
+}
+.table-footer {
+  border-top: 1px solid #E2E8F0 !important;
+}
+.page-btn {
+  background: #FFFFFF !important;
+  border: 1px solid #D2D6DC !important;
+  color: var(--text-secondary) !important;
+}
+.page-btn:hover {
+  background: #F1F3F5 !important;
+  color: var(--text-primary) !important;
+}
+.page-btn.active {
+  background: var(--clr-primary) !important;
+  border-color: var(--clr-primary) !important;
+  color: white !important;
+}
+.kanban-col {
+  background: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+}
+.kanban-col-header {
+  border-bottom: 1px solid #E2E8F0 !important;
+  background: #F8F9FA !important;
+}
+.kanban-col-count {
+  background: #E2E8F0 !important;
+  color: var(--text-secondary) !important;
+}
+.kanban-card {
+  background: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.02) !important;
+}
+.kanban-card:hover {
+  background: #FFFFFF !important;
+  border-color: rgba(222,31,38,0.3) !important;
+  box-shadow: 0 8px 16px rgba(222,31,38,0.06) !important;
+}
+.activity-item {
+  border-left: 2px solid #E2E8F0 !important;
+}
+.notif-header {
+  border-bottom: 1px solid #E2E8F0 !important;
+}
+.notif-item {
+  border-bottom: 1px solid #E2E8F0 !important;
+}
+.notif-item:hover {
+  background: #F8F9FA !important;
+}
+.notif-item.unread {
+  background: rgba(222,31,38,0.04) !important;
+}
+.notification-panel {
+  background: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08) !important;
+}
+.top-header-title {
+  color: var(--text-primary) !important;
+}
+.sidebar-logo-name {
+  color: var(--text-primary) !important;
+}

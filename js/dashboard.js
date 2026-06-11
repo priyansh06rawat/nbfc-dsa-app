@@ -27,11 +27,11 @@ const DASHBOARD_DATA = {
     { month: 'Dec', disbursed: 140, sanctioned: 165 },
   ],
   productMix: [
-    { name: 'Home Loan',   pct: 42, color: '#6C63FF', amount: '₹77Cr'  },
-    { name: 'LAP',         pct: 28, color: '#00D4FF', amount: '₹51Cr'  },
-    { name: 'MSME Loan',   pct: 15, color: '#00E5A0', amount: '₹28Cr'  },
-    { name: 'Personal Loan', pct: 9, color: '#FFB830', amount: '₹17Cr' },
-    { name: 'Others',      pct: 6,  color: '#FF6B6B', amount: '₹11Cr'  },
+    { name: 'Home Loan',   pct: 42, color: '#DE1F26', amount: '₹77Cr'  },
+    { name: 'LAP',         pct: 28, color: '#EF6C00', amount: '₹51Cr'  },
+    { name: 'MSME Loan',   pct: 15, color: '#8E24AA', amount: '₹28Cr'  },
+    { name: 'Personal Loan', pct: 9, color: '#FBC02D', amount: '₹17Cr' },
+    { name: 'Others',      pct: 6,  color: '#721C24', amount: '₹11Cr'  },
   ],
   funnel: [
     { label: 'Leads Received',   count: 2847, pct: 100 },
@@ -68,12 +68,12 @@ const DASHBOARD_DATA = {
     { name:'Rekha Singh',   code:'CNT-0029', type:'Connector',  leads:51,  disbursed:'₹18Cr', rating:4.1, status:'Active'    },
   ],
   activity: [
-    { icon:'📄', color:'rgba(108,99,255,0.2)', text:'<strong>Kavya Reddy</strong> submitted KYC documents for review', time:'2 min ago' },
-    { icon:'✅', color:'rgba(0,229,160,0.2)',   text:'Lead <strong>L-2844</strong> disbursed — ₹68L (Home Loan)', time:'15 min ago' },
-    { icon:'🔍', color:'rgba(0,212,255,0.15)', text:'PAN verification completed for <strong>Rohit Menon</strong>', time:'32 min ago' },
-    { icon:'❌', color:'rgba(255,107,107,0.2)', text:'Lead <strong>L-2843</strong> rejected — CIBIL score low', time:'1 hr ago' },
-    { icon:'👤', color:'rgba(255,184,48,0.2)',  text:'New DSA registered: <strong>Rajesh Verma</strong> (DSA-0142)', time:'2 hr ago' },
-    { icon:'📋', color:'rgba(176,110,255,0.2)', text:'Monthly report generated for <strong>May 2026</strong>', time:'3 hr ago' },
+    { icon:'📄', color:'rgba(222,31,38,0.1)', text:'<strong>Kavya Reddy</strong> submitted KYC documents for review', time:'2 min ago' },
+    { icon:'✅', color:'rgba(46,125,50,0.1)',   text:'Lead <strong>L-2844</strong> disbursed — ₹68L (Home Loan)', time:'15 min ago' },
+    { icon:'🔍', color:'rgba(222,31,38,0.08)', text:'PAN verification completed for <strong>Rohit Menon</strong>', time:'32 min ago' },
+    { icon:'❌', color:'rgba(198,40,40,0.1)', text:'Lead <strong>L-2843</strong> rejected — CIBIL score low', time:'1 hr ago' },
+    { icon:'👤', color:'rgba(239,108,0,0.1)',  text:'New DSA registered: <strong>Rajesh Verma</strong> (DSA-0142)', time:'2 hr ago' },
+    { icon:'📋', color:'rgba(142,36,170,0.1)', text:'Monthly report generated for <strong>May 2026</strong>', time:'3 hr ago' },
   ],
   kanban: {
     'Lead In':    ['Rohit Menon|Home Loan|₹52L|high', 'Priya Roy|LAP|₹30L|medium', 'Ali Hassan|MSME|₹15L|low'],
@@ -192,7 +192,7 @@ function renderDonut() {
 function renderFunnel() {
   const container = document.getElementById('funnel-chart');
   if (!container) return;
-  const colors = ['#6C63FF', '#9D97FF', '#00D4FF', '#00E5A0', '#FFB830'];
+  const colors = ['#DE1F26', '#FF5A60', '#FF8E92', '#FFA726', '#FFD54F'];
   container.innerHTML = DASHBOARD_DATA.funnel.map((d, i) => `
     <div class="funnel-bar-row">
       <div class="funnel-label">${d.label}</div>
@@ -217,7 +217,7 @@ const STATUS_CONFIG = {
 };
 
 const PRIORITY_CLR = { high: '#FF6B6B', medium: '#FFB830', low: '#00E5A0' };
-const AVATAR_COLORS = ['#6C63FF','#00D4FF','#00E5A0','#FFB830','#FF6B6B','#B06EFF'];
+const AVATAR_COLORS = ['#DE1F26','#EF6C00','#2E7D32','#FBC02D','#9C27B0','#C62828'];
 
 function renderLeadTable(filterStatus = 'all') {
   const tbody = document.getElementById('lead-tbody');
@@ -308,7 +308,7 @@ function renderKanban() {
   const board = document.getElementById('kanban-board');
   if (!board) return;
   const colColors = {
-    'Lead In':'#6C63FF', 'Login Done':'#00D4FF', 'KYC':'#FFB830', 'Sanctioned':'#B06EFF', 'Disbursed':'#00E5A0'
+    'Lead In':'#DE1F26', 'Login Done':'#EF6C00', 'KYC':'#FBC02D', 'Sanctioned':'#9C27B0', 'Disbursed':'#2E7D32'
   };
   board.innerHTML = Object.entries(DASHBOARD_DATA.kanban).map(([col, cards]) => `
     <div class="kanban-col">
@@ -369,7 +369,7 @@ function renderLineChart() {
   const areaD = `${pathD} L${pts[pts.length-1][0]},${H} L${pts[0][0]},${H} Z`;
 
   const circles = pts.map(p =>
-    `<circle cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="4" fill="#6C63FF" stroke="#0D1326" stroke-width="2"/>`
+    `<circle cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="4" fill="#DE1F26" stroke="#FFFFFF" stroke-width="2"/>`
   ).join('');
 
   const months = DASHBOARD_DATA.monthlyDisbursement.map(d => d.month.slice(0,3));
@@ -381,12 +381,12 @@ function renderLineChart() {
     <svg viewBox="0 0 ${W} ${H+16}" preserveAspectRatio="none" style="width:100%;height:160px;overflow:visible">
       <defs>
         <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#6C63FF" stop-opacity="0.3"/>
-          <stop offset="100%" stop-color="#6C63FF" stop-opacity="0"/>
+          <stop offset="0%" stop-color="#DE1F26" stop-opacity="0.3"/>
+          <stop offset="100%" stop-color="#DE1F26" stop-opacity="0"/>
         </linearGradient>
       </defs>
       <path d="${areaD}" fill="url(#areaGrad)"/>
-      <path d="${pathD}" fill="none" stroke="#6C63FF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="${pathD}" fill="none" stroke="#DE1F26" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
       ${circles}
       ${labels}
     </svg>`;
@@ -470,11 +470,11 @@ function renderProductTable() {
   const tbody = document.getElementById('product-tbody');
   if (!tbody) return;
   const products = [
-    ['Home Loan',    1194, '₹77Cr', '24%', '1.2%', '#6C63FF'],
-    ['LAP',          797,  '₹51Cr', '21%', '2.1%', '#00D4FF'],
-    ['MSME Loan',    426,  '₹28Cr', '19%', '3.4%', '#00E5A0'],
-    ['Personal Loan',284,  '₹17Cr', '18%', '2.8%', '#FFB830'],
-    ['Others',       146,  '₹11Cr', '16%', '1.9%', '#FF6B6B'],
+    ['Home Loan',    1194, '₹77Cr', '24%', '1.2%', '#DE1F26'],
+    ['LAP',          797,  '₹51Cr', '21%', '2.1%', '#EF6C00'],
+    ['MSME Loan',    426,  '₹28Cr', '19%', '3.4%', '#8E24AA'],
+    ['Personal Loan',284,  '₹17Cr', '18%', '2.8%', '#FBC02D'],
+    ['Others',       146,  '₹11Cr', '16%', '1.9%', '#721C24'],
   ];
   tbody.innerHTML = products.map(([prod, leads, disb, conv, npa, color]) => `
     <tr>
@@ -491,12 +491,12 @@ function renderStateList() {
   const container = document.getElementById('state-list');
   if (!container) return;
   const states = [
-    ['Maharashtra', '₹68Cr', 37, '#6C63FF'],
-    ['Delhi / NCR', '₹42Cr', 23, '#00D4FF'],
-    ['Karnataka',   '₹28Cr', 15, '#00E5A0'],
-    ['Tamil Nadu',  '₹22Cr', 12, '#FFB830'],
-    ['Gujarat',     '₹14Cr',  8, '#B06EFF'],
-    ['Others',      '₹10Cr',  5, '#FF6B6B'],
+    ['Maharashtra', '₹68Cr', 37, '#DE1F26'],
+    ['Delhi / NCR', '₹42Cr', 23, '#EF6C00'],
+    ['Karnataka',   '₹28Cr', 15, '#2E7D32'],
+    ['Tamil Nadu',  '₹22Cr', 12, '#FBC02D'],
+    ['Gujarat',     '₹14Cr',  8, '#9C27B0'],
+    ['Others',      '₹10Cr',  5, '#721C24'],
   ];
   container.innerHTML = states.map(([state, amt, pct, color]) => `
     <div>

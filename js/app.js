@@ -19,11 +19,11 @@ const AppState = {
     pincode: '', experience: '', product: 'Home Loan',
   },
   leads: [
-    { id: 'L001', name: 'Rahul Sharma',   product: 'Home Loan',  amount: '₹45L', status: 'Processing', color: '#6C63FF' },
-    { id: 'L002', name: 'Priya Nair',     product: 'LAP',        amount: '₹28L', status: 'Approved',   color: '#00E5A0' },
-    { id: 'L003', name: 'Amir Khan',      product: 'MSME Loan',  amount: '₹12L', status: 'Pending',    color: '#FFB830' },
-    { id: 'L004', name: 'Sunita Verma',   product: 'Home Loan',  amount: '₹62L', status: 'Disbursed',  color: '#00D4FF' },
-    { id: 'L005', name: 'Rajesh Patel',   product: 'PL',         amount: '₹5L',  status: 'Rejected',   color: '#FF6B6B' },
+    { id: 'L001', name: 'Rahul Sharma',   product: 'Home Loan',  amount: '₹45L', status: 'Processing', color: '#DE1F26' },
+    { id: 'L002', name: 'Priya Nair',     product: 'LAP',        amount: '₹28L', status: 'Approved',   color: '#2E7D32' },
+    { id: 'L003', name: 'Amir Khan',      product: 'MSME Loan',  amount: '₹12L', status: 'Pending',    color: '#EF6C00' },
+    { id: 'L004', name: 'Sunita Verma',   product: 'Home Loan',  amount: '₹62L', status: 'Disbursed',  color: '#FBC02D' },
+    { id: 'L005', name: 'Rajesh Patel',   product: 'PL',         amount: '₹5L',  status: 'Rejected',   color: '#C62828' },
   ],
   checklist: [false, false, false],
   navHistory: [],
@@ -212,7 +212,7 @@ function initSignaturePad() {
   let drawing = false;
   canvas.width = canvas.offsetWidth;
   canvas.height = canvas.offsetHeight;
-  ctx.strokeStyle = 'rgba(108,99,255,0.9)';
+  ctx.strokeStyle = 'rgba(222,31,38,0.9)';
   ctx.lineWidth = 2;
   ctx.lineCap = 'round';
   ctx.lineJoin = 'round';

@@ -1,7 +1,7 @@
 {
-  "name": "FinFlow NBFC",
-  "short_name": "FinFlow",
-  "description": "Next-generation DSA & Partner Onboarding App with KYC verification for FinFlow NBFC",
+  "name": "India Shelter Home Loan",
+  "short_name": "India Shelter",
+  "description": "Next-generation DSA & Partner Onboarding App with KYC verification for India Shelter Home Loan",
   "start_url": "/index.html",
   "scope": "/",
   "id": "/?source=pwa",
@@ -9,8 +9,8 @@
   "display": "standalone",
   "display_override": ["standalone", "minimal-ui", "window-controls-overlay"],
   "orientation": "portrait",
-  "background_color": "#070B18",
-  "theme_color": "#6C63FF",
+  "background_color": "#FFFFFF",
+  "theme_color": "#DE1F26",
   "lang": "en-IN",
   "categories": ["finance", "business"],
   "iarc_rating_id": "e84b072d-71b3-4d3e-86ae-31a8ce4e53b7",
@@ -32,7 +32,7 @@
   },
   "protocol_handlers": [
     {
-      "protocol": "web+finflow",
+      "protocol": "web+indiashelter",
       "url": "/?url=%s"
     }
   ],
@@ -47,7 +47,7 @@
   },
   "widgets": [
     {
-      "name": "FinFlow Status",
+      "name": "India Shelter Status",
       "description": "Check application status",
       "tag": "status",
       "template_url": "widget.html",
@@ -160,8 +160,8 @@
   "related_applications": [
     {
       "platform": "play",
-      "url": "https://play.google.com/store/apps/details?id=com.finflow.app",
-      "id": "com.finflow.app"
+      "url": "https://play.google.com/store/apps/details?id=com.indiashelter.app",
+      "id": "com.indiashelter.app"
     }
   ],
   "prefer_related_applications": false

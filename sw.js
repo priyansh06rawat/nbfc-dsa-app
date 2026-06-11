@@ -1,8 +1,8 @@
 /* ============================================================
-   FinFlow NBFC — Service Worker (PWA Offline Support)
+   India Shelter Home Loan — Service Worker (PWA Offline Support)
    ============================================================ */
 
-const CACHE_NAME = 'finflow-nbfc-v1.0.1';
+const CACHE_NAME = 'india-shelter-home-loan-v1.0.1';
 const CACHE_URLS = [
   '/',
   '/index.html',
@@ -104,7 +104,7 @@ async function syncLeads() {
 // ── Push Notifications ─────────────────────────────────────
 self.addEventListener('push', (event) => {
   const data = event.data ? event.data.json() : {};
-  const title = data.title || 'FinFlow NBFC';
+  const title = data.title || 'India Shelter Home Loan';
   const options = {
     body: data.body || 'You have a new notification',
     icon: '/icons/icon-192.png',
