@@ -61,6 +61,7 @@ function showScreen(id, pushHistory = true) {
   AppState.currentScreen = id;
   updateTime();
   updateSidebarSteps();
+  updateNavBar(id);
 }
 
 function goBack() {
@@ -318,14 +319,43 @@ function initAmountSlider() {
 }
 
 // ── Mobile Nav ────────────────────────────────────────────
+const NAV_SCREENS = ['screen-home', 'screen-lead-form'];
+
+function updateNavBar(screenId) {
+  const nav = document.getElementById('mobile-nav-bar');
+  if (!nav) return;
+
+  // Show nav only on post-login app screens
+  if (NAV_SCREENS.includes(screenId) || screenId === 'screen-home') {
+    nav.classList.add('visible');
+  } else {
+    nav.classList.remove('visible');
+  }
+
+  // Sync active tab
+  nav.querySelectorAll('.nav-item[data-screen]').forEach(item => {
+    item.classList.toggle('active', item.dataset.screen === screenId);
+  });
+}
+
 function initMobileNav() {
-  document.querySelectorAll('.nav-item[data-screen]').forEach(item => {
+  const nav = document.getElementById('mobile-nav-bar');
+  if (!nav) return;
+
+  // Nav items with data-screen
+  nav.querySelectorAll('.nav-item[data-screen]').forEach(item => {
     item.addEventListener('click', () => {
-      document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-      item.classList.add('active');
       showScreen(item.dataset.screen);
     });
   });
+
+  // FAB button
+  const fab = document.getElementById('nav-fab');
+  if (fab) {
+    fab.addEventListener('click', () => {
+      showScreen('screen-lead-form');
+    });
+  }
 }
 
 // ── Progress Steps Indicator ───────────────────────────────
