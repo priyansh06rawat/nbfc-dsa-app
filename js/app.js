@@ -12,8 +12,8 @@ const AppState = {
   otp: ['', '', '', '', '', ''],
   kyc: {
     pan: null, aadhaarFront: null, aadhaarBack: null,
-    selfie: null, businessProof: null, bankDoc: null,
-    panVerified: false, bankVerified: false, selfieVerified: false,
+    selfie: null, businessProof: null, bankDoc: null, dsaCertificate: null,
+    panVerified: false, aadhaarVerified: false, udhyamVerified: false, bankVerified: false, selfieVerified: false,
   },
   form: {
     name: '', phone: '', dob: '', email: '',
@@ -249,6 +249,53 @@ function initSignaturePad() {
   if (clearBtn) clearBtn.addEventListener('click', () => ctx.clearRect(0, 0, canvas.width, canvas.height));
 }
 
+// ── Theme Toggle ──
+function initTheme() {
+  const isDark = localStorage.getItem('dsa_theme') === 'dark';
+  if (isDark) document.body.classList.add('dark-theme');
+  const toggleBtn = document.getElementById('theme-toggle-btn');
+  const toggleStatus = document.getElementById('theme-toggle-status');
+  
+  if (toggleBtn) {
+    if (toggleStatus) toggleStatus.textContent = isDark ? 'ON' : 'OFF';
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-theme');
+      const darkNow = document.body.classList.contains('dark-theme');
+      localStorage.setItem('dsa_theme', darkNow ? 'dark' : 'light');
+      if (toggleStatus) toggleStatus.textContent = darkNow ? 'ON' : 'OFF';
+    });
+  }
+}
+
+// ── Push Notifications ──
+function initPushNotifications() {
+  const notifBtn = document.getElementById('notif-toggle-btn');
+  const notifStatus = document.getElementById('notif-toggle-status');
+  
+  if (notifBtn) {
+    if (Notification.permission === 'granted') {
+      if (notifStatus) notifStatus.textContent = 'ON';
+    } else {
+      if (notifStatus) notifStatus.textContent = 'OFF';
+    }
+    
+    notifBtn.addEventListener('click', () => {
+      if (Notification.permission === 'granted') {
+        alert('Push notifications are already enabled.');
+        return;
+      }
+      Notification.requestPermission().then(permission => {
+        if (permission === 'granted') {
+          if (notifStatus) notifStatus.textContent = 'ON';
+          alert('Push notifications enabled!');
+        } else {
+          alert('Push notifications denied.');
+        }
+      });
+    });
+  }
+}
+
 // ── PAN Verification Simulation ────────────────────────────────────────────
 function simulatePANVerify() {
   const inp = document.getElementById('pan-input');
@@ -275,6 +322,46 @@ function simulatePANVerify() {
       btn.disabled = false;
     }, 1800);
   });
+
+  const apiFetchPan = document.getElementById('pan-api-fetch');
+  if (apiFetchPan) {
+    apiFetchPan.addEventListener('click', () => {
+      apiFetchPan.innerHTML = '<span class="processing-ring"></span> Fetching via DigiLocker...';
+      apiFetchPan.disabled = true;
+      setTimeout(() => {
+        apiFetchPan.innerHTML = '✅ Fetched via DigiLocker';
+        AppState.kyc.panVerified = true;
+      }, 2000);
+    });
+  }
+}
+
+// ── Aadhaar API Simulation ──
+function simulateAadhaarAPI() {
+  const btn = document.getElementById('aadhaar-api-fetch');
+  if (!btn) return;
+  btn.addEventListener('click', () => {
+    btn.innerHTML = '<span class="processing-ring"></span> Fetching via DigiLocker...';
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.innerHTML = '✅ Fetched via DigiLocker';
+      AppState.kyc.aadhaarVerified = true;
+    }, 2000);
+  });
+}
+
+// ── Udhyam API Simulation ──
+function simulateUdhyamAPI() {
+  const btn = document.getElementById('udhyam-api-fetch');
+  if (!btn) return;
+  btn.addEventListener('click', () => {
+    btn.innerHTML = '<span class="processing-ring"></span> Fetching Udhyam Details...';
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.innerHTML = '✅ Udhyam Details Verified';
+      AppState.kyc.udhyamVerified = true;
+    }, 2000);
+  });
 }
 
 // ── Bank Verification Simulation ───────────────────────────────────────────
@@ -289,9 +376,20 @@ function simulateBankVerify() {
     setTimeout(() => {
       status.innerHTML = '✅ Bank Account Verified via Penny Drop';
       status.style.display = 'flex';
-      btn.innerHTML = '✅ Verified';
+      btn.innerHTML = '✅ Penny Drop Verified';
       AppState.kyc.bankVerified = true;
     }, 2200);
+  });
+
+  const aaBtn = document.getElementById('bank-aa-fetch');
+  if (!aaBtn) return;
+  aaBtn.addEventListener('click', () => {
+    aaBtn.innerHTML = '<span class="processing-ring"></span> Fetching via Account Aggregator...';
+    aaBtn.disabled = true;
+    setTimeout(() => {
+      aaBtn.innerHTML = '✅ Statements Fetched (AA)';
+      AppState.kyc.bankVerified = true;
+    }, 2500);
   });
 }
 
@@ -539,11 +637,48 @@ document.addEventListener('DOMContentLoaded', () => {
   renderLeads();
   renderAllLeads();
   renderPayouts();
+  initTheme();
+  initPushNotifications();
+  simulateAadhaarAPI();
+  simulateUdhyamAPI();
 
   // ── Wire all [data-next-screen] buttons ──────────────────────────────────
   document.querySelectorAll('[data-next-screen]').forEach(btn => {
     btn.addEventListener('click', () => {
       const target = btn.dataset.nextScreen;
+      
+      // KYC Mandatory Validations
+      if (AppState.currentScreen === 'screen-kyc-pan' && target === 'screen-kyc-aadhaar') {
+        if (!AppState.kyc.panVerified && !AppState.kyc.pan) {
+          alert('Please verify PAN or upload PAN card to proceed.'); return;
+        }
+      }
+      if (AppState.currentScreen === 'screen-kyc-aadhaar' && target === 'screen-kyc-selfie') {
+        if (!AppState.kyc.aadhaarVerified && (!AppState.kyc.aadhaarFront || !AppState.kyc.aadhaarBack)) {
+          alert('Please fetch Aadhaar via API or upload both Front and Back sides to proceed.'); return;
+        }
+      }
+      if (AppState.currentScreen === 'screen-kyc-selfie' && target === 'screen-kyc-business') {
+        if (!AppState.kyc.selfieVerified) {
+          alert('Please capture live selfie for face match to proceed.'); return;
+        }
+      }
+      if (AppState.currentScreen === 'screen-kyc-business' && target === 'screen-kyc-bank') {
+        if (!AppState.kyc.udhyamVerified && !AppState.kyc.businessProof) {
+          alert('Please fetch Udhyam details or upload a valid business proof to proceed.'); return;
+        }
+      }
+      if (AppState.currentScreen === 'screen-kyc-bank' && target === 'screen-kyc-agreement') {
+        if (!AppState.kyc.bankVerified && !AppState.kyc.bankDoc) {
+          alert('Please verify bank via Penny Drop / Account Aggregator, or upload Bank Statement to proceed.'); return;
+        }
+      }
+      if (AppState.currentScreen === 'screen-kyc-agreement' && target === 'screen-review') {
+        if (!AppState.kyc.dsaCertificate) {
+          alert('Please upload your DSA Certificate (Other Party) to proceed.'); return;
+        }
+      }
+
       const kycScreens = [
         'screen-kyc-pan','screen-kyc-aadhaar','screen-kyc-selfie',
         'screen-kyc-business','screen-kyc-bank','screen-kyc-agreement'

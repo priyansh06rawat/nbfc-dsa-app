@@ -505,6 +505,10 @@
           <div id="pan-verify-badge" class="verify-badge" style="display:none;margin-top:8px"></div>
         </div>
 
+        <button id="pan-api-fetch" class="btn-outline" style="width:100%;margin-bottom:14px;padding:12px;font-size:13px">
+          📲 Fetch via DigiLocker API
+        </button>
+
         <!-- PAN Upload -->
         <div style="margin-bottom:14px">
           <label class="form-label" style="display:block;margin-bottom:8px">Upload PAN Card Image</label>
@@ -549,6 +553,10 @@
           <label class="form-label">Aadhaar Number (last 4 digits)</label>
           <input type="text" class="form-input" placeholder="XXXX XXXX XXXX" maxlength="14" style="letter-spacing:2px;font-weight:700">
         </div>
+
+        <button id="aadhaar-api-fetch" class="btn-outline" style="width:100%;margin-bottom:14px;padding:12px;font-size:13px">
+          📲 Fetch via DigiLocker API
+        </button>
 
         <div style="margin-bottom:14px">
           <label class="form-label" style="display:block;margin-bottom:8px">Aadhaar Front Side</label>
@@ -681,6 +689,10 @@
           </div>
         </div>
 
+        <button id="udhyam-api-fetch" class="btn-outline" style="width:100%;margin-bottom:14px;padding:12px;font-size:13px">
+          📲 Fetch Udhyam Details via API
+        </button>
+
         <!-- GST Details -->
         <div class="form-group" style="margin-bottom:10px">
           <label class="form-label">GSTIN (if applicable)</label>
@@ -755,7 +767,10 @@
         <button id="bank-verify-btn" class="btn-outline" style="width:100%;margin-bottom:10px">
           🔍 Verify via Penny Drop
         </button>
-        <div id="bank-verify-status" class="bank-verify-status" style="display:none;margin-bottom:14px"></div>
+        <button id="bank-aa-fetch" class="btn-outline" style="width:100%;margin-bottom:10px;border-color:var(--clr-emerald);color:var(--clr-emerald)">
+          📊 Fetch via Account Aggregator
+        </button>
+        <div id="bank-verify-status" class="verify-badge success" style="display:none;margin-bottom:14px"></div>
 
         <div style="display:flex;gap:10px">
           <button class="btn-outline" style="flex:1" data-next-screen="screen-kyc-business">← Back</button>
@@ -776,6 +791,19 @@
         <div style="padding:12px 0 8px">
           <h3 style="font-size:18px;font-weight:800;margin-bottom:4px">Sign DSA Agreement</h3>
           <p style="font-size:12px;color:var(--text-secondary);margin-bottom:16px">Please read and sign the DSA empanelment agreement</p>
+        </div>
+
+        <!-- DSA Certificate Upload -->
+        <div style="margin-bottom:16px">
+          <label class="form-label" style="display:block;margin-bottom:8px">DSA Certificate (Other Party)</label>
+          <div class="upload-zone" data-doc="dsaCertificate" style="padding:16px 12px">
+            <input type="file" accept="image/*,.pdf">
+            <div class="upload-prompt" style="display:flex;flex-direction:column;align-items:center;gap:8px">
+              <div class="upload-icon-wrap" style="width:40px;height:40px;font-size:18px">📜</div>
+              <div class="upload-label" style="font-size:12px">Upload DSA Certificate</div>
+            </div>
+            <img class="upload-preview" src="" alt="DSA Certificate">
+          </div>
         </div>
 
         <!-- Agreement Preview -->
@@ -1154,10 +1182,16 @@
         </div>
 
         <!-- Settings -->
-        <div style="background:#fff;border:1px solid #E2E8F0;border-radius:var(--radius-lg);overflow:hidden;margin-bottom:12px">
+        <div style="background:var(--bg-card);border:1px solid #E2E8F0;border-radius:var(--radius-lg);overflow:hidden;margin-bottom:12px">
           <div style="padding:14px 16px;border-bottom:1px solid #F0F2F5;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--text-muted)">Settings</div>
-          <div class="profile-row profile-action"><span class="profile-label">🔔 Notifications</span><span style="font-size:12px;color:var(--clr-emerald);font-weight:700">ON</span></div>
-          <div class="profile-row profile-action"><span class="profile-label">🌙 Dark Mode</span><span style="font-size:12px;color:var(--text-muted);font-weight:700">OFF</span></div>
+          <div class="profile-row profile-action" id="notif-toggle-btn" style="cursor:pointer">
+            <span class="profile-label">🔔 Notifications</span>
+            <span id="notif-toggle-status" style="font-size:12px;color:var(--clr-emerald);font-weight:700">OFF</span>
+          </div>
+          <div class="profile-row profile-action" id="theme-toggle-btn" style="cursor:pointer">
+            <span class="profile-label">🌙 Dark Mode</span>
+            <span id="theme-toggle-status" style="font-size:12px;color:var(--text-muted);font-weight:700">OFF</span>
+          </div>
           <div class="profile-row profile-action" style="border:none"><span class="profile-label">🔒 Change PIN</span><span style="font-size:12px;color:var(--clr-primary);font-weight:700">→</span></div>
         </div>
 
